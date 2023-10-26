@@ -12,7 +12,6 @@ map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 map <BackSpace> i<BackSpace><ESC>
 let &t_SI = "\e[5 q"
-let &t_EI = "\e[1 q"
 " github.com/nanotech/jellybeans.vim
 colorscheme jellybeans
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
