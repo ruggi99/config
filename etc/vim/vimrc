@@ -1,18 +1,27 @@
-set nocompatible
-
 syntax on
+set nocompatible
 set number
 set autoindent
 set mouse =a
 set backspace =2
 set showcmd
-highlight TrailingWhiteSpaces ctermbg=green guibg=#55aa55
-match TrailingWhiteSpaces /\s\+$/
-map <Enter> o<ESC>
-map <S-Enter> O<ESC>
-map <BackSpace> i<BackSpace><ESC>
-let &t_SI = "\e[5 q"
+
+" highlight spaces at the end of lines like nano
+autocmd ColorScheme * highlight TrailingWhiteSpaces ctermbg=green guibg=#55aa55
+
+" swap lines with Alt like VSCode
+nnoremap <A-Down> :m .+1<CR>==
+nnoremap <A-Up> :m .-2<CR>==
+inoremap <A-Down> <Esc>:m .+1<CR>==gi
+inoremap <A-Up> <Esc>:m .-2<CR>==gi
+
 " github.com/nanotech/jellybeans.vim
 colorscheme jellybeans
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+" Start matching trailing whitespaces
+match TrailingWhiteSpaces /\s\+$/
+
+" special chars (:set list) to highlight them
+set list listchars=tab:>-
+
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
