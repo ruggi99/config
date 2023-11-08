@@ -5,6 +5,8 @@ set autoindent
 set mouse =a
 set backspace =2
 set showcmd
+" Write full path of file, row and column in the statusbar
+set statusline=%F\ (%l,%c)
 
 " highlight spaces at the end of lines like nano
 autocmd ColorScheme * highlight TrailingWhiteSpaces ctermbg=green guibg=#55aa55
